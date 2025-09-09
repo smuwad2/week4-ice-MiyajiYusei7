@@ -1,0 +1,48 @@
+<html>
+
+<head>
+   <title>Event Handling</title>
+</head>
+
+<body>
+
+   <h1>Shopping List</h1>
+   <p>Get it done today</p>
+
+   <input type="text" id="inputText">
+   <!-- add a button here for adding new item -->
+   <button id="btnAdd" onclick="addItem()">Enter</button>
+   <ul>
+      <li>Notebook <button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Jello <button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Spinach <button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Rice <button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Birthday Cake <button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Candles <button onclick="removeItem(this.parentNode)">delete</button></li>
+   </ul>
+
+   <script>
+
+      // add code here
+      function addItem() {
+         const newItemVal = document.getElementById("inputText").value;
+         const ulElem = document.getElementsByTagName("ul")[0];
+         const liElem = document.createElement("li");
+         liElem.innerText = newItemVal;
+         // Add delete button for new item
+         const btnElem = document.createElement('button');
+         btnElem.innerText = "delete";
+         btnElem.addEventListener("click", function() {
+            this.parentNode.remove();
+         });
+         liElem.appendChild(btnElem);
+         ulElem.appendChild(liElem);
+      }
+      function removeItem(obj) {
+         obj.remove();
+      }
+   </script>
+
+</body>
+
+</html>
