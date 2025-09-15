@@ -19,7 +19,18 @@
     <script>
         
         // add code here
+        var selected_item = document.getElementById("select_item");
+        selected_item.addEventListener("change", addNewItem);
+
+        function addNewItem() {
+            console.log(selected_item.value);
         
+            var ul = document.getElementById("shopList");
+            var li = document.createElement("li");
+            var textNode = document.createTextNode(selected_item.value);
+            li.appendChild(textNode);
+            ul.appendChild(li);  
+         }
         
     </script>
 
